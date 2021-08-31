@@ -21,10 +21,5 @@ def test_second_program():
     assert a + 2 == 6, 'Addition do not match'
 
 
-@pytest.fixture()
-def setup():
-    print("I will be executing first")
-
-
 def test_fixture_demo(setup):
     print("I will execute steps in fixture_demo method")
