@@ -4,13 +4,15 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC, expected_conditions
-
-from PythonSeleniumFramework.utulities import BaseClass
+from utulities.BaseClass import BaseClass
+from pageObjects.HomePage import HomePage
 
 
 class TestOne(BaseClass):
 
     def test_e2e(self):
+        homePage = HomePage(self.driver)
+        homePage.shopItems().click()
         self.driver.find_element_by_link_text("Shop").click()
         products = self.driver.find_elements_by_xpath("//div[@class='card h-100']")
         for product in products:
